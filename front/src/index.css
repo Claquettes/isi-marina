@@ -53,3 +53,9 @@ h1{
 img {
     border-radius: 10px;
 }
+
+#gif {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

@@ -36,6 +36,27 @@ app.get("/marina/boats", (req, res) => {
     }
 );
 
+//sends back a specific boat in the database
+app.get("/marina/boat/:id", (req, res) => {
+        // we get the id from the request
+        const id = req.params.id;
+        pool.getConnection()
+            .then(conn => {
+                conn.query("SELECT * FROM boats WHERE id = ?", [id])
+                    .then((rows) => {
+                        res.send(rows);
+                    })
+                    .catch((err) => {
+                        res.send(err);
+                    });
+                conn.end();
+            })
+            .catch((err) => {
+                res.send(err);
+            });
+    }
+);
+
 //sends back all of the users in the database
 app.get("/marina/users", (req, res) => {
     pool.getConnection()
@@ -72,7 +93,7 @@ app.get("/marina/emplacements", (req, res) => {
         });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3123;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
     let runtimer = 0;

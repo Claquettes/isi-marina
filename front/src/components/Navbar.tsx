@@ -6,13 +6,13 @@ function NavbarComponent() {
         <nav>
             <ul>
                 <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/">Acceuil</Link>
                 </li>
                 <li>
-                    <Link to="/boats">Boats</Link>
+                    <Link to="/boats">Bateaux</Link>
                 </li>
                 <li>
-                    <Link to="/users">Users</Link>
+                    <Link to="/users">Les Fadas</Link>
                 </li>
                 <li>
                     <Link to="/emplacements">Emplacements</Link>
