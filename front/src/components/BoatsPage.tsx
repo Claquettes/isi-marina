@@ -22,8 +22,11 @@ function BoatsPage() {
                 <table>
                     <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Length</th>
+                        <th>Nom</th>
+                        <th>Longueur</th>
+                        <th>Largeur</th>
+                        <th>Année d'Immatriculation</th>
+                        <th>Appartient à</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -31,6 +34,9 @@ function BoatsPage() {
                         <tr key={boat.id}>
                             <td><Link to={`/boat?id=${boat.id}`}>{boat.name}</Link></td>
                             <td>{boat.length}</td>
+                            <td>{boat.width}</td>
+                            <td>{boat.year_of_immatriculation}</td>
+                            <td><Link to={`/user/?id=${boat.id_owner}`}>{boat.id_owner}</Link></td>
                         </tr>
                     ))}
                     </tbody>

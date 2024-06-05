@@ -8,6 +8,7 @@ function useQuery() {
 
 function UserDetailsPage() {
     const [user, setUser] = useState<User | null>(null);
+    const [imageUrl, setImageUrl] = useState<string | null>(null);
     const query = useQuery();
     const id = query.get("id");
 
@@ -36,28 +37,60 @@ function UserDetailsPage() {
                     console.error('Error fetching user details:', error);
                 });
         }
+
+        // Fetch a random user image
+        fetch('https://randomuser.me/api/')
+            .then(response => response.json())
+            .then(data => {
+                const imageUrl = data.results[0].picture.large;
+                setImageUrl(imageUrl);
+            })
+            .catch(error => {
+                console.error('Error fetching random user image:', error);
+            });
     }, [id]);
 
     return (
         <div>
-            <h1>User Details</h1>
+            <h1>Détails du marin</h1>
             {user ? (
                 <div className={"all-table"}>
                     <table>
                         <tbody>
-                            <tr><td>Nom:</td><td>{user.name}</td></tr>
-                            <tr><td>Prénom:</td><td>{user.surname}</td></tr>
-                            <tr><td>Surnom:</td><td>{user.third_name}</td></tr>
-                            <tr><td>Année de naissance:</td><td>{user.year_of_birth}</td></tr>
-                            <tr><td>Adherent depuis:</td><td>{user.year_since_adherent}</td></tr>
-                        </tbody>
-                    </table>
+                        <tr>
+                            <td>Photo</td>
+                            <td>{imageUrl && <img src={imageUrl} alt="Random User"/>}</td>
+                        </tr>
+                        <tr>
+                            <td>Nom:</td>
+                            <td>{user.name}</td>
+                        </tr>
+                        <tr>
+                            <td>Prénom:</td>
+                            <td>{user.surname}</td>
+                        </tr>
+                        <tr>
+                            <td>Surnom:</td>
+                            <td>{user.third_name}</td>
+                        </tr>
+                        <tr>
+                            <td>Année de naissance:</td>
+                            <td>{user.year_of_birth}</td>
+                        </tr>
+                        <tr>
+                            <td>Adherent depuis:</td>
+                            <td>{user.year_since_adherent}</td>
+                        </tr>
+                    </tbody>
+                </table>
                 </div>
-            ) : (
+                ) : (
                 <p>Loading...</p>
-            )}
-        </div>
-    );
+                )}
+
+</div>
+)
+;
 }
 
 export default UserDetailsPage;

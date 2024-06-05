@@ -26,7 +26,8 @@ function EmplacementsPage() {
                     <tr>
                         <th>Allée</th>
                         <th>Emplacement</th>
-                        <th>Bateau garé</th>
+                        <th>Id Propriétaire</th>
+                        <th>Id Bateau garé</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -34,11 +35,16 @@ function EmplacementsPage() {
                         <tr key={emplacement.id}>
                             <td>{emplacement.e_column}</td>
                             <td>{emplacement.e_row}</td>
+                            <td>
+                                <Link
+                                to={`/user/?id=${emplacement.id_owner}`}>{emplacement.id_owner}</Link>
+                            </td>
                             {emplacement.id_boat_parked ?
-                                <td><Link
-                                    to={`/boat?id=${emplacement.id_boat_parked}`}>{emplacement.id_boat_parked}</Link>
-                                </td> :
-                                <td>Aucun</td>}
+                            <td><Link
+                                to={`/boat/?id=${emplacement.id_boat_parked}`}>{emplacement.id_boat_parked}</Link>
+                            </td> :
+                            <td>Aucun</td>}
+
                         </tr>
                     ))}
                     </tbody>

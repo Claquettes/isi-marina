@@ -13,21 +13,27 @@ function UsersPage() {
     return (
         <div>
             <h1>Users</h1>
-            <table>
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Surname</th>
-                </tr>
-                </thead>
-                <tbody>
-                {users.map(user => (
-                    <tr key={user.id}>
-                        <td><Link to={`marina/user/${user.id}`}>{user.name}</Link></td>
+            <div className={"all-table"}>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Prenom</th>
+                        <th>Nom</th>
+                        <th>Année de naissance</th>
                     </tr>
-                ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    {users.map(user => (
+                        <tr key={user.id}>
+                            <td><Link to={`/user/?id=${user.id}`}>{user.name}</Link></td>
+                            <td><Link to={`/user/?id=${user.id}`}>{user.surname}</Link></td>
+                            <td>{user.year_of_birth}</td>
+                        </tr>
+
+                    ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }

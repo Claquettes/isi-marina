@@ -1,6 +1,7 @@
 function HomePage() {
     return (
         <div id="background">
+
             <div>
                 <h1>Le vieux port de Marseille</h1>
                 <h3>Since 600BC !</h3>
@@ -29,6 +30,7 @@ function HomePage() {
                     visiteurs un aperçu authentique de l'âme marseillaise.
                 </p>
             </div>
+
             <div id="gif">
                 <img src={"https://img1.picmix.com/output/pic/normal/4/5/7/0/3350754_e813c.gif"} alt={"Vieux-Port"}
                      width={"250px"} height={"250px"}/>
