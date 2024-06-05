@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 
 function BoatsPage() {
     const [boats, setBoats] = useState<Boat[]>([]);
+    const [users, setUsers] = useState<any[]>([]);
 
     useEffect(() => {
         fetch('http://146.59.233.238:3123/marina/boats')
@@ -12,7 +13,19 @@ function BoatsPage() {
                 console.log(data);
                 setBoats(data);
             });
+
+        fetch('http://146.59.233.238:3123/marina/users')
+            .then(response => response.json())
+            .then((data: any[]) => {
+                console.log(data);
+                setUsers(data);
+            });
     }, []);
+
+    const getUserName = (id: number) => {
+        const user = users.find(user => user.id === id);
+        return user ? user.name : 'Unknown';
+    }
 
     return (
         <div>
@@ -36,7 +49,7 @@ function BoatsPage() {
                             <td>{boat.length}</td>
                             <td>{boat.width}</td>
                             <td>{boat.year_of_immatriculation}</td>
-                            <td><Link to={`/user/?id=${boat.id_owner}`}>{boat.id_owner}</Link></td>
+                            <td><Link to={`/user/?id=${boat.id_owner}`}>{getUserName(boat.id_owner)}</Link></td>
                         </tr>
                     ))}
                     </tbody>

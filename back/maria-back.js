@@ -95,6 +95,13 @@ app.get("/marina/user/:id", (req, res) => {
 );
 
 
+
+
+
+
+
+
+
 //sends back all of the emplacements in the database
 app.get("/marina/emplacements", (req, res) => {
     pool.getConnection()

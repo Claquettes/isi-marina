@@ -10,6 +10,7 @@ function useQuery() {
 
 function BoatDetailsPage() {
     const [boat, setBoat] = useState<Boat | null>(null);
+    const [user, setUser] = useState<any | null>(null);
     const query = useQuery();
     const id = query.get("id");
 
@@ -45,7 +46,7 @@ function BoatDetailsPage() {
 
     return (
         <div>
-            <h1>Boat Details</h1>
+            <h1>Détails du Bateau</h1>
             {boat ? (
                 <div className={"all-table"}>
                     <table>
