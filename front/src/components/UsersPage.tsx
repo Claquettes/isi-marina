@@ -12,7 +12,7 @@ function UsersPage() {
 
     return (
         <div>
-            <h1>Users</h1>
+            <h1>Les Marins</h1>
             <div className={"all-table"}>
                 <table>
                     <thead>

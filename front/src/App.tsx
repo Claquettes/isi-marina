@@ -9,6 +9,7 @@ import HomePage from "./components/HomePage.tsx";
 import EmplacementsPage from "./components/EmplacementsPage.tsx";
 import BoatDetailsPage from "./components/BoatDetailsPage.tsx";
 import UserDetailsPage from "./components/UserDetailsPage.tsx";
+import FormComponent from "./components/FormComponent.tsx";
 
 function App() {
     const [boats, setBoats] = useState<Boat[]>([]);
@@ -28,6 +29,7 @@ function App() {
                 <Route path="/users" element={<UsersPage/>}/>
                 <Route path="/user" element={<UserDetailsPage/>}/>
                 <Route path="/emplacements" element={<EmplacementsPage/>}/>
+                <Route path="/form" element={<FormComponent/>}/>
                 <Route path="/" element={<HomePage/>}/>
             </Routes>
         </Router>

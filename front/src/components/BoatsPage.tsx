@@ -16,7 +16,7 @@ function BoatsPage() {
 
     return (
         <div>
-            <h1>Boat Page</h1>
+            <h1>Les bateaux</h1>
             <h3>Voici nos bateaux:</h3>
             <div className={"all-table"}>
                 <table>

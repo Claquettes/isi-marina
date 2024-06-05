@@ -2,23 +2,29 @@ body {
     background-image: url("https://www.barnes-provence-littoral.com/images/visuels_articles/1408_3XZ2e_v.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: 'Courier New', Courier, monospace; /* Gives a retro feeling */
+    font-family: 'Courier New', Courier, monospace;
     color: white;
 }
 
 #background {
-    background-color: rgba(173, 216, 230, 0.7); /* Light blue with some transparency */
+    background-color: rgba(173, 216, 230, 0.7);
     padding: 20px;
 }
 
 nav {
-    background-color: #191970; /* Dark blue */
+    background-color: #191970;
     padding: 10px;
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
+}
+
+nav ul li:before {
+    content: "|";
+    margin: 0 10px;
+    color: white;
 }
 
 nav ul li {
@@ -33,22 +39,21 @@ nav ul li a {
 
 h1, h3 {
     text-align: center;
-    color: #191970; /* Dark blue */
+    color: #191970;
 }
 
-h1{
+h1 {
     font-size: 50px;
     font-weight: 1200;
     margin-bottom: -1.5rem;
 }
 
 .infos {
-    background-color: #191970; /* Dark blue */
+    background-color: #191970;
     padding: 20px;
     margin: 20px;
     border-radius: 10px;
 }
-
 
 img {
     border-radius: 10px;
@@ -64,17 +69,22 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: auto;
+    margin: 20px;
 }
 
 .all-table table {
     border-collapse: collapse;
-    width: 50%;
+    width: 80%;
     text-align: center;
+    background-color: rgba(173, 216, 230, 0.7);
+    border-radius: 10px;
+    border-spacing: 0;
+    border: 1px solid #191970;
 }
 
 .all-table th, .all-table td {
-    border: 1px solid #ddd;
+    border: 1px solid #191970;
     padding: 8px;
 }
 
@@ -87,7 +97,7 @@ img {
     background-color: #191970;
     color: white;
 
-    a{
+    a {
         color: white;
         text-decoration: underline;
     }
@@ -103,4 +113,46 @@ img {
     text-align: center;
     background-color: #7272fc;
     color: white;
+}
+
+/* Add your FormComponent styles here */
+
+.form-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(173, 216, 230, 0.7);
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 500px;
+}
+
+.form-component label {
+    margin-bottom: 10px;
+    color: #191970;
+}
+
+.form-component input, .form-component textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #191970;
+}
+
+.form-component button {
+    padding: 10px 20px;
+    background-color: #191970;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.form-component button:hover {
+    background-color: #4CAF50;
 }

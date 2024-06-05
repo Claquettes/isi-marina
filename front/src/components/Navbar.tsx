@@ -17,6 +17,10 @@ function NavbarComponent() {
                 <li>
                     <Link to="/emplacements">Emplacements</Link>
                 </li>
+                <li>
+                    <Link to="/form">Contact</Link>
+                </li>
+
             </ul>
         </nav>
     );

@@ -19,7 +19,7 @@ function EmplacementsPage() {
     return (
         <div>
             <h1>Les emplacements</h1>
-            <h3>Voici l'attribut de nos emplacements:</h3>
+            <h3>Voici l'attribution de nos emplacements:</h3>
             <div className={"all-table"}>
                 <table>
                     <thead>
