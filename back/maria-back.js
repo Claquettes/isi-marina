@@ -74,12 +74,32 @@ app.get("/marina/users", (req, res) => {
             res.send(err);
         });
 });
+app.get("/marina/user/:id", (req, res) => {
+        // we get the id from the request
+        const id = req.params.id;
+        pool.getConnection()
+            .then(conn => {
+                conn.query("SELECT * FROM users WHERE id = ?", [id])
+                    .then((rows) => {
+                        res.send(rows);
+                    })
+                    .catch((err) => {
+                        res.send(err);
+                    });
+                conn.end();
+            })
+            .catch((err) => {
+                res.send(err);
+            });
+    }
+);
+
 
 //sends back all of the emplacements in the database
 app.get("/marina/emplacements", (req, res) => {
     pool.getConnection()
         .then(conn => {
-            conn.query("SELECT * FROM emplacements")
+            conn.query("SELECT * FROM emplacement")
                 .then((rows) => {
                     res.send(rows);
                 })

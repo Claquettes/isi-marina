@@ -1,6 +1,5 @@
 import {Boat} from "../../model/types.ts";
-import {useEffect} from "react";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 
 function BoatsPage() {
@@ -19,22 +18,24 @@ function BoatsPage() {
         <div>
             <h1>Boat Page</h1>
             <h3>Voici nos bateaux:</h3>
-            <table>
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Length</th>
-                </tr>
-                </thead>
-                <tbody>
-                {boats.map(boat => (
-                    <tr key={boat.id}>
-                        <td><Link to={`/boat?id=${boat.id}`}>{boat.name}</Link></td>
-                        <td>{boat.length}</td>
+            <div className={"all-table"}>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Length</th>
                     </tr>
-                ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    {boats.map(boat => (
+                        <tr key={boat.id}>
+                            <td><Link to={`/boat?id=${boat.id}`}>{boat.name}</Link></td>
+                            <td>{boat.length}</td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }

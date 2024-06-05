@@ -8,6 +8,7 @@ import UsersPage from "./components/UsersPage.tsx";
 import HomePage from "./components/HomePage.tsx";
 import EmplacementsPage from "./components/EmplacementsPage.tsx";
 import BoatDetailsPage from "./components/BoatDetailsPage.tsx";
+import UserDetailsPage from "./components/UserDetailsPage.tsx";
 
 function App() {
     const [boats, setBoats] = useState<Boat[]>([]);
@@ -23,9 +24,10 @@ function App() {
             <NavbarComponent/>
             <Routes>
                 <Route path="/boats" element={<BoatsPage/>}/>
-                <Route path="/users" element={<UsersPage/>}/>
-                <Route path="/emplacements" element={<EmplacementsPage/>}/>
                 <Route path="/boat" element={<BoatDetailsPage/>}/>
+                <Route path="/users" element={<UsersPage/>}/>
+                <Route path="/user" element={<UserDetailsPage/>}/>
+                <Route path="/emplacements" element={<EmplacementsPage/>}/>
                 <Route path="/" element={<HomePage/>}/>
             </Routes>
         </Router>

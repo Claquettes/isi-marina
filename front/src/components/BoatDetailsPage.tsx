@@ -1,6 +1,6 @@
 import {Boat} from "../../model/types.ts";
 import {useEffect, useState} from "react";
-import {useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 
 function useQuery() {
@@ -43,24 +43,44 @@ function BoatDetailsPage() {
         }
     }, [id]);
 
-   return (
-    <div>
-        <h1>Boat Details</h1>
-        {boat ? (
-            <div>
-                <p>Name: {boat.name}</p>
-                <p>Length: {boat.length}</p>
-                <p>Width: {boat.width}</p>
-                <p>Year of Immatriculation: {boat.year_of_immatriculation}</p>
-                <p>Year since in Marina: {boat.year_since_in_marina}</p>
-                <p>Year until Concession Payed: {boat.year_until_concession_payed}</p>
-                <p>Owner ID: {boat.id_owner}</p>
-            </div>
-        ) : (
-            <p>Loading...</p>
-        )}
-    </div>
-);
+    return (
+        <div>
+            <h1>Boat Details</h1>
+            {boat ? (
+                <div className={"all-table"}>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Longueur</th>
+                            <th>Largeur</th>
+                            <th>Année d'immatriculation</th>
+                            <th>Dans le vieux port depuis</th>
+                            <th>Place payée jusqu'à</th>
+                            <th>Propriétaire</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr key={boat.id}>
+                            <td><Link to={`/boat?id=${boat.id}`}>{boat.name}</Link></td>
+                            <td>{boat.length}</td>
+                            <td>{boat.width}</td>
+                            <td>{boat.year_of_immatriculation}</td>
+                            <td>{boat.year_since_in_marina}</td>
+                            <td>{boat.year_until_concession_payed}</td>
+                            <td><Link
+                                to={`/user/?id=${boat.id_owner}`}>{boat.id_owner}</Link>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            ) : (
+                <p>Loading...</p>
+            )}
+        </div>
+    );
 }
 
 export default BoatDetailsPage;

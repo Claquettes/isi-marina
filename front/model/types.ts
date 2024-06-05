@@ -10,7 +10,7 @@ export type Boat = {
     id_owner: number
 }
 
-export type user = {
+export type User = {
     id: number
     name: string
     surname: string
@@ -19,7 +19,7 @@ export type user = {
     year_since_adherent: number
 }
 
-export type emplacement = {
+export type Emplacement = {
     id: number
     e_row: number
     e_column: number
@@ -27,4 +27,5 @@ export type emplacement = {
     year_of_attribution: number
     id_owner: number
     id_boat: number
+    id_boat_parked: number
 }
